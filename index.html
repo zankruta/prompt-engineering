@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Engineering for AI Product Managers: A Practical Playbook</title>
+</head>
+<body>
+
+<header>
+  <h1>Prompt Engineering for AI Product Managers: A Practical Playbook</h1>
+  <p>A structured, practical guide for early-career product managers building AI-powered products.</p>
+</header>
+
+<main>
+
+<section id="foundations">
+  <h2>1. Foundations</h2>
+
+  <h3>What Prompt Engineering Is (Product Definition)</h3>
+  <p>
+    Prompt engineering is the practice of designing structured instructions that reliably guide an AI system 
+    toward outputs aligned with product intent. For product managers, it is not about linguistic creativity — 
+    it is about controlling behavior under constraints.
+  </p>
+
+  <h3>Why It Matters for PMs</h3>
+  <ul>
+    <li>Directly impacts user experience and output reliability</li>
+    <li>Reduces engineering iteration cycles</li>
+    <li>Controls risk, tone, and compliance</li>
+    <li>Improves evaluation and measurement of AI features</li>
+  </ul>
+
+  <h3>Common Misconceptions</h3>
+  <ul>
+    <li><strong>“Better wording equals better results.”</strong> Structure and constraints matter more than phrasing.</li>
+    <li><strong>“The model understands intent implicitly.”</strong> It only follows explicit instructions.</li>
+    <li><strong>“One great prompt solves everything.”</strong> Prompts require testing and iteration.</li>
+  </ul>
+</section>
+
+<section id="user-prompts">
+  <h2>2. Writing Excellent User Prompts</h2>
+
+  <h3>A Practical Framework: CLEAR</h3>
+  <ul>
+    <li><strong>C</strong>ontext – What situation or data is provided?</li>
+    <li><strong>L</strong>imitations – What constraints must be followed?</li>
+    <li><strong>E</strong>xpected Output – Format and structure required</li>
+    <li><strong>A</strong>udience – Who is this for?</li>
+    <li><strong>R</strong>easoning Control – Should it explain steps or not?</li>
+  </ul>
+
+  <h3>Example 1: Customer Support Summary</h3>
+
+  <p><strong>Bad Prompt:</strong></p>
+  <pre>Summarize this conversation.</pre>
+
+  <p><strong>Improved Prompt:</strong></p>
+  <pre>
+Summarize the following customer support conversation.
+Output format:
+- Customer issue (1 sentence)
+- Root cause
+- Resolution
+- Sentiment (Positive/Neutral/Negative)
+Keep under 120 words.
+Audience: internal support team.
+  </pre>
+
+  <h3>Common Mistakes</h3>
+  <ul>
+    <li>No output format defined</li>
+    <li>No length constraints</li>
+    <li>Missing audience context</li>
+    <li>Implicit quality expectations</li>
+  </ul>
+
+  <h3>Example 2: Feature Idea Evaluation</h3>
+  <p><strong>Use Case:</strong> Evaluating product ideas internally.</p>
+
+  <pre>
+Evaluate the following feature idea.
+Score from 1–5 on:
+- User value
+- Technical feasibility
+- Revenue potential
+Provide short justification for each score.
+Conclude with overall recommendation.
+  </pre>
+
+</section>
+
+<section id="system-prompts">
+  <h2>3. Writing Strong System Prompts</h2>
+
+  <h3>Core Components</h3>
+  <ul>
+    <li><strong>Role Framing:</strong> Define expertise and responsibility</li>
+    <li><strong>Constraints:</strong> Hard limits on behavior</li>
+    <li><strong>Formatting Control:</strong> Required structure</li>
+    <li><strong>Tone Control:</strong> Professional, concise, empathetic, etc.</li>
+    <li><strong>Guardrails:</strong> What to avoid</li>
+  </ul>
+
+  <h3>Example 3: Sales Email Generator</h3>
+
+  <p><strong>Weak System Prompt:</strong></p>
+  <pre>You are a helpful assistant.</pre>
+
+  <p><strong>Improved System Prompt:</strong></p>
+  <pre>
+You are a B2B SaaS sales assistant.
+Tone: Professional and concise.
+Output must:
+- Be under 150 words
+- Avoid exaggerated claims
+- Include 1 clear CTA
+If information is missing, ask for clarification instead of guessing.
+  </pre>
+
+  <h3>Example 4: Compliance-Sensitive Output</h3>
+  <pre>
+You are an AI assistant for financial guidance.
+Do not provide personalized investment advice.
+If user requests financial recommendation, provide educational information only.
+  </pre>
+
+</section>
+
+<section id="evaluation-framework">
+  <h2>4. Prompt Evaluation Framework</h2>
+
+  <h3>Reusable Rubric</h3>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Dimension</th>
+        <th>Questions to Ask</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Clarity</td>
+        <td>Is the instruction unambiguous?</td>
+      </tr>
+      <tr>
+        <td>Specificity</td>
+        <td>Are constraints explicit?</td>
+      </tr>
+      <tr>
+        <td>Constraints</td>
+        <td>Are output limits defined?</td>
+      </tr>
+      <tr>
+        <td>Edge Cases</td>
+        <td>Does it specify what to do if info is missing?</td>
+      </tr>
+      <tr>
+        <td>Failure Modes</td>
+        <td>Could hallucination occur?</td>
+      </tr>
+      <tr>
+        <td>Alignment</td>
+        <td>Does it match product intent?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Scoring Checklist (1–5)</h3>
+  <ul>
+    <li>1–2: High ambiguity</li>
+    <li>3: Moderately structured</li>
+    <li>4: Clear and controlled</li>
+    <li>5: Highly constrained and production-ready</li>
+  </ul>
+
+  <h3>Evaluation Example</h3>
+
+  <p><strong>Weak Prompt:</strong></p>
+  <pre>Write a product description for our app.</pre>
+
+  <p><strong>Evaluation:</strong></p>
+  <ul>
+    <li>Clarity: 2</li>
+    <li>Specificity: 1</li>
+    <li>Constraints: 1</li>
+    <li>Alignment: 2</li>
+  </ul>
+
+  <p><strong>Improved Version:</strong></p>
+  <pre>
+Write a product description for a time-tracking SaaS tool.
+Audience: Freelancers.
+Length: 120–150 words.
+Tone: Confident but not exaggerated.
+Include:
+- Core benefit
+- Differentiator
+- One CTA.
+  </pre>
+
+</section>
+
+<section id="iteration">
+  <h2>5. Iteration and Debugging Prompts</h2>
+
+  <h3>Systematic Testing Process</h3>
+  <ol>
+    <li>Define success criteria before testing</li>
+    <li>Test across varied inputs</li>
+    <li>Record failure patterns</li>
+    <li>Adjust one variable at a time</li>
+  </ol>
+
+  <h3>Common Failure Patterns</h3>
+  <ul>
+    <li>Overly verbose outputs</li>
+    <li>Hallucinated facts</li>
+    <li>Ignoring format requirements</li>
+    <li>Inconsistent tone</li>
+  </ul>
+
+  <h3>When to Change What</h3>
+  <ul>
+    <li><strong>Adjust Prompt:</strong> Formatting, clarity, constraints</li>
+    <li><strong>Change Model:</strong> If reasoning depth insufficient</li>
+    <li><strong>Add Retrieval:</strong> When domain accuracy is critical</li>
+  </ul>
+
+  <h3>Practical Iteration Workflow</h3>
+  <ol>
+    <li>Draft v1</li>
+    <li>Evaluate using rubric</li>
+    <li>Run 10 diverse test cases</li>
+    <li>Identify patterns</li>
+    <li>Revise and retest</li>
+  </ol>
+
+</section>
+
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>
+    Prompt engineering for product managers is not about clever phrasing — it is about designing 
+    reliable behavioral control systems for AI features. By applying structured frameworks, 
+    evaluation rubrics, and systematic iteration, you move from experimentation to production-grade AI design.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p>End of Guide</p>
+</footer>
+
+</body>
+</html>
