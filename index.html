@@ -183,4 +183,106 @@ Rewrite this email to be concise, professional, and under 120 words. Preserve al
 <li><strong>Constraints:</strong> Word limits, tone, exclusions</li>
 <li><strong>Output Control:</strong> Structured formats</li>
 <li><strong>Tone:</strong> Formal, friendly, neutral</li>
-<li><strong>Guard
+<li><strong>Guardrails:</strong> Refuse unsafe or irrelevant requests</li>
+</ul>
+
+<h3>Example: AI Support Assistant</h3>
+
+<div class="example">
+You are a SaaS customer support assistant. Provide accurate answers using only verified product documentation. If uncertain, say “I don’t have enough information.” Always respond in concise paragraphs under 150 words.
+</div>
+
+<h3>Example: AI Hiring Assistant</h3>
+
+<div class="example">
+You are a hiring assistant evaluating resumes. Score candidates on experience relevance (0–5), skills match (0–5), and clarity (0–5). Provide reasoning for each score in bullet format.
+</div>
+
+</section>
+
+<section>
+<h2>4. Prompt Evaluation Framework</h2>
+
+<h3>The PACE Rubric</h3>
+<ul>
+<li><strong>P</strong>recision – Is the task unambiguous?</li>
+<li><strong>A</strong>lignment – Does it match product goals?</li>
+<li><strong>C</strong>onstraints – Are limits defined?</li>
+<li><strong>E</strong>dge Cases – Are failure modes considered?</li>
+</ul>
+
+<h3>Scoring Checklist (1–5 Each)</h3>
+<ul>
+<li>Clarity</li>
+<li>Specificity</li>
+<li>Constraints</li>
+<li>Edge Case Handling</li>
+<li>Alignment with Product Intent</li>
+</ul>
+
+<h3>Evaluating a Weak Prompt</h3>
+
+<div class="example bad">
+Write onboarding instructions for new users.
+</div>
+
+<p><strong>Evaluation:</strong></p>
+<ul>
+<li>Clarity: 2/5 (Which product?)</li>
+<li>Specificity: 1/5</li>
+<li>Constraints: 0/5</li>
+<li>Edge Cases: 0/5</li>
+<li>Alignment: 2/5</li>
+</ul>
+
+<div class="example">
+<strong>Improved Version:</strong><br/>
+Write onboarding instructions for first-time users of a B2B analytics dashboard. Keep under 300 words. Use numbered steps. Assume non-technical users. Focus on account setup and first report generation.
+</div>
+
+</section>
+
+<section>
+<h2>5. Iteration and Debugging Prompts</h2>
+
+<h3>Systematic Testing</h3>
+<ul>
+<li>Test with varied inputs</li>
+<li>Test edge cases deliberately</li>
+<li>Compare outputs side-by-side</li>
+<li>Log failure patterns</li>
+</ul>
+
+<h3>Failure Pattern Diagnosis</h3>
+<ul>
+<li>Too verbose → Add word limits</li>
+<li>Hallucination → Add sourcing constraints</li>
+<li>Inconsistent format → Enforce structure explicitly</li>
+</ul>
+
+<h3>When to Adjust What</h3>
+<ul>
+<li>Prompt issue → Rewrite instruction</li>
+<li>Knowledge gap → Add retrieval (RAG)</li>
+<li>Reasoning limitation → Upgrade model</li>
+</ul>
+
+<h3>Practical Iteration Workflow</h3>
+<ol>
+<li>Define success criteria</li>
+<li>Draft baseline prompt</li>
+<li>Test against 5–10 realistic inputs</li>
+<li>Score using PACE rubric</li>
+<li>Refine constraints and structure</li>
+<li>Repeat until consistent ≥4/5 across dimensions</li>
+</ol>
+
+</section>
+
+<div class="footer">
+Built for AI Product Managers who ship real AI features, not demos.
+</div>
+
+</main>
+</body>
+</html>
